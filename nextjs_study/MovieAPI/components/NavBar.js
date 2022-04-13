@@ -16,14 +16,16 @@ export default function NavBar(){
 
 
         <style jsx>{`
-         nav{
-             background-color:tomato;
-         }
-        a{
-            text-decoration:none;
+        nav{
+           
+            text-align: center;
         }
-        .change{
-            color:white
+        a{
+            margin: 20px ;
+            text-decoration: none;
+            color: black;   
+            font-size:20px;
+            font-weight:bold;
         }
         `}</style>
     </nav>

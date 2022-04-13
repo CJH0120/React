@@ -1,92 +1,34 @@
-next js 시작   (마더코더)
-04-12
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Getting Started
 
-Pages 폴더안에 생성하면됨
-next js가 알아서해줌  == 추상화를 시킨거임
+First, run the development server:
 
-컴포넌트 이름은 중요하지않고,export default(URL) 가 가장 중요
-index.js ==메인 페이지
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-네비에서 a태크 사용하지 말아야하는 이유  : 전체 새로고침
- next Link =>엄청빠름  
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
- <a style={{color:router.pathname==="/"?"red":"blue"}}> </a>
- =>  pathname ===/  이거면 red 다른거면 blue
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-/////////////////////////////////////////////////////////////////
- css module
-사용 방법 
-<div classname={styles.div}>   <div>
-모듈.css => .div{css}
-랜덤하게 이름 생성해서 중복방지
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-클래스 이름 여러개 쓸때
-className={[
-    styels.ex1,
-    router.pathname==="/" ? styles.ex2 : "",
-    ].join("")}
-]}
-className={
-    `${styles.link}
-    ${router.ex2 ==="/"?styles.ex2 : "" 
-    }`}
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-<style jsx>{`
- nav{
-             background-color:tomato;
-         }
-        a{
-            text-decoration:none;
-        }
+## Learn More
 
-`}</style>
+To learn more about Next.js, take a look at the following resources:
 
-클래스이름을 생각안해도된다
-<style jsx golbal>{`
- nav{
-             background-color:tomato;
-         }
-        a{
-            text-decoration:none;
-        }
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-`}</style
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-/////////////////////////////////////////////////////////////////
-_app.is   = > 무조건 이이름으로 지어야함
-처음 렌더링 되는것
-기본 App을 재정의하려면 아래와 같이 ./pages/_app.js 파일을 만듭니다.
-//시작페이지 설정 
-export default function App ({Component,pageProps}){
-                             불러올컴포넌트, 불러올값
-    return(
-        <>
-        <div>
-            <NavBar/>           //추가하는 컴포넌트
-            <Component {...pageProps}/> //위에 선언한 컴포넌트
-        </div>
-            </>
-    )
-}
-여기다가 global 쓰면됨 import해서 css 못넣음
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
