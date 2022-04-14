@@ -11,13 +11,7 @@ export default function CJH(){
       <h1>About</h1>
         </div>
     
-        <style jsx>{`
-        div{
-          
-          text-align: center;
-          margin-top:50px;
-        }
-        `}</style>
+  
     
         </>
         

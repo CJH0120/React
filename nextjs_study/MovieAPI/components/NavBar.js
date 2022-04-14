@@ -16,9 +16,13 @@ export default function NavBar(){
 
 
         <style jsx>{`
+  
         nav{
            
             text-align: center;
+            width:300px;
+            margin : 0 auto;
+            border:1px solid black;
         }
         a{
             margin: 20px ;
@@ -26,6 +30,9 @@ export default function NavBar(){
             color: black;   
             font-size:20px;
             font-weight:bold;
+        }
+        .change{
+            color:red;
         }
         `}</style>
     </nav>

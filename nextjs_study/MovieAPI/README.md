@@ -94,9 +94,44 @@ export default function App ({Component,pageProps}){
 
 
 
+export async function getServerSideProps(){
+  
+}
+위함수는 오직 서버에서만 실행된다
+
+
+
+ex)
+all.js
+export default function All(){
+    return "all";
+}
+==> 폴더명/all 
+index.js
+export default function All(){
+    return "movie index";
+}
+==>localhost:3000/폴더명
+
+
+변수 url 
+파일이름  [eX].js 
+
+
+router.push({
+  pathname:`/movies/${id}`,       //어디로가는지
+  query:{
+   
+    title: "${id}"                //보여줄
+  }
+},
+`/movies/${id}`                   //url가리기
+)
+}
 
 
 
 
-
-
+***************************
+   <h4>{router.query.title || "Loding...."}</h4> 
+   => 홈페이지를 거쳐 들어오지 않으면(ex:url로 들어왔을경우)다 로딩으로 뜸!

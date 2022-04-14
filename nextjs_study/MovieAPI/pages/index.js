@@ -1,79 +1,94 @@
 
-import { useEffect, useState } from "react";
-import Seo from "../components/Seo"
 
-export default function Home(){
-const API_Key ="84681a7022280cff3021d07fe9117b39";
-const [movies,setMovies] = useState([]);
-useEffect(() => {
-  (async () => {
-    const { results } = await (
-      await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${API_Key}`
-      )
-    ).json();
-    console.log(results)
-    setMovies(results);
-   })();
-  }, []);
+  import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+  import Seo from "../components/Seo"
+export default function Home({results}){
+const router = useRouter();
+const onClick =(id,title) =>{
+router.push({
+  pathname:`/movies/${id}`,
+  query:{
+   
+    title,
+  }
+},
+`/movies/${id}`
+)
+}
   return (
     <>
-     <div className="AVA">
+     <div >
       <Seo title="Home" />
       
-      <div className="AAA">
-      {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie) => (
-        <div className="BBB"key={movie.id}>
+      <div className="wrap"  >
+    
+      {results?.map((movie) => (
+     
+     <div onClick={()=>onClick(movie.id,movie.original_title)} className="movielist" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
-          <h4>{movie.original_title}</h4>
+          <h4>
+          <Link href={`/movies/${movie.id}`} >  
+          <a>  {movie.original_title}</a>
+          </Link>
+          </h4>
+          
         </div>
+       
       ))}
        </div>
     </div>
 
-        <style jsx>{`
-        div{
-          background:#ddd;
-          margin-top:50px;
-        }
-        .AVA{
-          width:1000px;
-          margin:0 auto;
-          text-align: center;
         
+    <style jsx global>{`
+    .wrap{
+     width:550px;
+      margin :0 auto;
+      display:flex;
+      flex-wrap: wrap;
+      text-align: center;
+      
+    }
+    a{
+      text-decoration: none;
+    }
+    *{
+      padding:0;
+      margin:0;
+    }
+    img{
+      width:250px;
+    }
+    img:hover{
+      width:260px;
+    }
+    h4{
+      margin :10px 0;
+    }
+    .movielist{
+      margin:0 20px 20px 0;
+      margin-top:20px;
 
-        }
-        h4{
-          width:300px;
-        }
-       .AAA{
-       
-        display :flex;
-        flex-wrap:wrap;
-        
-       }
-        .BBB{
-         
-          text-align: center;
-          
-      
-        }
-     
-      
-        img{
-          border-radius:12px;
-          width:150px;
-          
-          
-        }
-        img:hover{
-          width:170px;
-        }
-        `}</style>
+    }
+    
+    `}</style>
     </>
     )
 
-    
+}
 
+export async function getServerSideProps(){
+  const API_Key ="84681a7022280cff3021d07fe9117b39";
+
+  const { results } = await (
+    await fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_Key}`
+    )
+  ).json();
+  return{
+    props:{
+      results,
+    },
+  };
 }
