@@ -1,8 +1,9 @@
-import Movie from "./Movie/Movie";
+import Movies from "./Movie/movies";
+
 
 export default function Home() {
  return( 
- <Movie/>
+    <Movies></Movies>
  
  )
 
