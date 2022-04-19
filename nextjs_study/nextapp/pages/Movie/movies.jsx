@@ -32,7 +32,7 @@ const FotterWrap = styled.div`
 const Movies = ( ) =>{  
 
   
-const PopularURL = `https://api.themoviedb.org/3/movie/popular?api_key=84681a7022280cff3021d07fe9117b39&language=ko-KR&page=all`;
+const PopularURL = `https://api.themoviedb.org/3/movie/popular?api_key=84681a7022280cff3021d07fe9117b39&language=ko-KR&page=1`;
     
     
     
@@ -50,22 +50,22 @@ useEffect(() => {
    
 
 
-
-    console.log(movies)
+   
     return(
         <>
          { movies?.map((movie)=>(
-           
-        <SectionWrap key={movie.id}>
+        <div  key={movie.id}>
+        <SectionWrap>
         <HeaderWrap>
-        <MoviesHeader poster= {movie.poster_path}/>
-        </HeaderWrap>
+         <MoviesHeader movie= {movie.id}/>
+       </HeaderWrap>
 
-        <ImgWrap>이미지
-        </ImgWrap>    
+         <ImgWrap>이미지
+       </ImgWrap>    
         <FotterWrap>
-         </FotterWrap>
-        </SectionWrap>
+        </FotterWrap>
+      </SectionWrap>
+      </div>
          ))}
         </>
     )

@@ -1,9 +1,10 @@
-import Navbar from "components/NavBar"
+
+import Nav from "./Nav"
 export default function Layout({children}){
 
     return(
         <>
-        <Navbar/>
+        <Nav/>
         <div>{children}</div>
         
         </>
