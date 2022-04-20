@@ -1,9 +1,10 @@
-import MovieList from "./componetns/Movie/MoiveList"
-
+import MovieItem from "./componetns/Movie/MovieItem"
+console.log("Moives 렌더링")
 const Movies = ()=>{
 
     return(
-            <MovieList/>    
+           
+            <MovieItem/>    
         )
 }
 export default Movies
