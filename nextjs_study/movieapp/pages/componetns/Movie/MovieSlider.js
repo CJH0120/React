@@ -18,7 +18,7 @@ useEffect(() => {
             viedoURL
           )
           ).json();
-         
+          
           SetMovie(results);
         })();
       }, []);
@@ -31,8 +31,9 @@ useEffect(() => {
         slidesToScroll: 1
       };
 
+
       const video = Moive.slice(0,1);
-const useCallbackReturn = useCallback(() => {console.log(video)}, [video]);
+const useCallbackReturn = useCallback(() => {console.log(video.length)}, [video]);
 
 useCallbackReturn();
 

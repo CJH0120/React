@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+
 import Layout from './componetns/Layout'
 
 function MyApp({ Component, pageProps }) {
@@ -6,6 +7,7 @@ function MyApp({ Component, pageProps }) {
   <>
 
   <Layout>
+ 
   <Component {...pageProps} />
   </Layout>
   </>
