@@ -1,0 +1,10 @@
+{
+    // next에서 바벨설정을 할 때 필수적으로 추가해줘야한다 함.
+    "presets": ["next/babel"],
+    "plugins": [
+      [
+        "babel-plugin-styled-components",
+        { "fileName": true, "displayName": true, "pure": true }
+      ]
+    ]
+  }
